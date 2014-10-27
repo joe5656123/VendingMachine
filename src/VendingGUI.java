@@ -92,7 +92,7 @@ private JTextArea jtaCandyGet;
 public static void main (String[] args){
 	JFrame vendingWindow = new vendingGUI();
 	       vendingWindow.setTitle("VENDING_MACHINE");
-	       vendingWindow.setSize(340,3s30);
+	       vendingWindow.setSize(340,330);
 	       vendingWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
            vendingWindow.setVisible(true);
 }
