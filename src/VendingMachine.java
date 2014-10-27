@@ -1,17 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author joe56_000
+ * Programmer Names: Joe, Frank, and Keith
+ * Class: IST 311
+ * Project: Vending Machine Project
  */
 public class VendingMachine {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         // TODO code application logic here
     }
