@@ -1,19 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This program will simulate a Java Vending Machine JVM, that will allow the
+ * user to interact with the machine with GUI
  */
-/**
- *
- * @author joe56_000
- */
-public class VendingMachine {
 
-    /**
-     * @param args the command line arguments
-     */
+import java.util.*;
+
+public class VendingMachine {
     public static void main(String[] args) {
-        // TODO code application logic here
+        Display.display();
     }
-    
 }
