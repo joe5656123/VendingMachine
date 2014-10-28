@@ -3,6 +3,7 @@ import java.util.*;
 public class Item {
     private double _price;
     private String _name;
+    private int _inventory;
     
     public Item(){ // default cash register
     }
@@ -10,6 +11,7 @@ public class Item {
     public Item(double price, String name){ // default cash register
         this._price = price;
         this._name = name;
+        this._inventory = 5;
     }
     
     public void setPrice(double price){
@@ -26,5 +28,13 @@ public class Item {
     
     public String getName(){
         return this._name;
+    }
+    
+    public void setInventory(int inventory){
+        this._inventory -= inventory;
+    }
+    
+    public int getInventory(){
+        return this._inventory;
     }
 }
