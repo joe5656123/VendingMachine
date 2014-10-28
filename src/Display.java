@@ -1,15 +1,13 @@
-import java.util.*;
-
 public class Display {
-    public Item recees = new Item(1.25, "Recees");
-    public Item kitkat = new Item(1.250, "Kit-Kat");
-    public Item snickers = new Item(1.25, "Snickers");
-    public Item milkyway = new Item(1.25, "Milkyway");
-    public Item herse = new Item(1.00, "Herse");
-    public Item doritos = new Item(1.00, "Doritos");
-    public Item sunChips = new Item(1.00, "Sun Chips");
-    public Item lays = new Item(1.00, "Lays");
-    public Item lifeSavers = new Item(.75, "Life Savers");
+    public Item recees = new Item(1.25, "Recees"); // creates the recees item
+    public Item kitkat = new Item(1.250, "Kit-Kat"); // creates the  kit-kat item
+    public Item snickers = new Item(1.25, "Snickers"); // creates the snickers item
+    public Item milkyway = new Item(1.25, "Milkyway"); // creates the milkyway item
+    public Item herse = new Item(1.00, "Herse"); // creates the herse item
+    public Item doritos = new Item(1.00, "Doritos"); // creates the doritos item
+    public Item sunChips = new Item(1.00, "Sun Chips"); // creates the sun chips item
+    public Item lays = new Item(1.00, "Lays"); // creates the lays item
+    public Item lifeSavers = new Item(.75, "Life Savers"); // creates the life savers item
     
     public static void display(){ // creates the display of the vending machine
         System.out.println("-------------------");

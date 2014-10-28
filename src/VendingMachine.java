@@ -3,25 +3,30 @@
  * Class: IST 311
  * Project: Vending Machine Project
  * Description: This program will simulate a Java Vending Machine JVM, 
- * that will allow the user to interact with the machine with GUI
+ * that will allow the user to interact with the GUI machine
  */
+
+import java.util.*;
+import java.awt.*;
+import javax.swing.*;
+
 public class VendingMachine {
-    public static void main(String[] args) {
-        Item item = new Item();
-        CashRegister cr = new CashRegister();
-        Display d = new Display();
-        Scanner s = new Scanner(System.in);
-        boolean exit = false;
-        int input;
-        char boolInput;
+    public static void main(String[] args){ // main method
+        Item item = new Item(); // Item class
+        CashRegister cr = new CashRegister(); //cashRegister class
+        Display d = new Display(); // Display class
+        Scanner s = new Scanner(System.in); // Scanner class
+        boolean exit = false; // exits if exit = true
+        int input; // user input for integers
+        char boolInput; // user input for booleans
         
-        Display.display();
+        Display.display(); // displays the JVM selection
         
-        while(!exit){
+        while(!exit){ // if exit is true, program will end
             System.out.print("\nEnter the Item you want ");
             input = s.nextInt();
 
-            switch (input){
+            switch (input){ // points item to the desired snack
                 case 1: item = d.recees;
                 break;
                 case 2: item = d.kitkat;
@@ -40,34 +45,38 @@ public class VendingMachine {
                 break;
                 case 9: item = d.lifeSavers;
                 break;
-                default: exit = true;
+                default: exit = true; // any integer that is not 1-9 will exit the program
             }
             
-            if (exit) {}
+            if (exit) {} // exit or continue
             else {
-                if (item.getPrice() - cr.getUserAmount() > 0){
+                // if the user has enough money or not
+                if (item.getPrice() - cr.getUserAmount() > 0){ // if they do not, tell them and skip the purchasing process
                     System.out.println("You do not have enough for a " + item.getName());
                     System.out.printf("Your amount: %.2f%n", cr.getUserAmount(), " ", 
                                       item.getName()," amount: ", item.getPrice());
                 }
-                else{
-                    if (item.getInventory() == 0)
+                else{ // if they do, continue
+                    // if the item is in stock
+                    if (item.getInventory() == 0) // if not, tell them and skip purchasing process
                         System.out.print("Out of " + item.getName());
-                    else{
+                    else{ // if it is, sell the item
                         cr.reduce(item.getPrice(), item);
-
+                        
+                        // display the cash register and user pocket total and how many items are left
                         System.out.printf("Vending Machine total amount changed to %.2f%n", cr.getAmount());
                         System.out.println(item.getName() + " amount changed to " + item.getInventory());
                         System.out.printf("Your total is %.2f%n", cr.getUserAmount());
-
+                        
+                        // asks the user if they would like to ocntinue
                         System.out.print("\nContinue? (Y for yes, other for no) ");
                         boolInput = s.next().charAt(0);
 
-                        switch (boolInput){
-                            case 'y':
-                            case 'Y':
+                        switch (boolInput){ // do they want to continue?
+                            case 'y': // Y is yes
+                            case 'Y': // y is yes
                             break;
-                            default: exit = true;
+                            default: exit = true; // everything else is no
                         }
                     }
                 }
