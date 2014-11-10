@@ -12,15 +12,15 @@ public class VendingGUI extends JFrame {
 
 
     public VendingGUI() {
-		ImageIcon Doritos = new ImageIcon("X:\\My Documents\\GitHub\\VendingMachine\\src\\Images\\Doritos64.jpg");
-		ImageIcon Hersheys = new ImageIcon("X:\\My Documents\\GitHub\\VendingMachine\\src\\Images\\Hersheys64.jpg");
-		ImageIcon KitKat = new ImageIcon("X:\\My Documents\\GitHub\\VendingMachine\\src\\Images\\KitKat64.jpg");
-		ImageIcon Lays = new ImageIcon("X:\\My Documents\\GitHub\\VendingMachine\\src\\Images\\Lays64.jpg");
-		ImageIcon LifeSavers = new ImageIcon("X:\\My Documents\\GitHub\\VendingMachine\\src\\Images\\LifeSavers64.jpg");
-		ImageIcon MilkyWay = new ImageIcon("X:\\My Documents\\GitHub\\VendingMachine\\src\\Images\\MilkyWay64.jpg");
-		ImageIcon Reeses = new ImageIcon("X:\\My Documents\\GitHub\\VendingMachine\\src\\Images\\Reeses64.jpg");
-		ImageIcon Snickers = new ImageIcon("X:\\My Documents\\GitHub\\VendingMachine\\src\\Images\\Snickers64.jpg");
-		ImageIcon SunChips = new ImageIcon("X:\\My Documents\\GitHub\\VendingMachine\\src\\Images\\SunChips64.jpg");
+		ImageIcon Doritos = new ImageIcon("Images\\Doritos64.jpg");
+		ImageIcon Hersheys = new ImageIcon("Images\\Hersheys64.jpg");
+		ImageIcon KitKat = new ImageIcon("Images\\KitKat64.jpg");
+		ImageIcon Lays = new ImageIcon("Images\\Lays64.jpg");
+		ImageIcon LifeSavers = new ImageIcon("Images\\LifeSavers64.jpg");
+		ImageIcon MilkyWay = new ImageIcon("Images\\MilkyWay64.jpg");
+		ImageIcon Reeses = new ImageIcon("Images\\Reeses64.jpg");
+		ImageIcon Snickers = new ImageIcon("Images\\Snickers64.jpg");
+		ImageIcon SunChips = new ImageIcon("Images\\SunChips64.jpg");
 //setting various visual features and buttons
         setLayout(new FlowLayout(FlowLayout.LEFT));
         setResizable(false);
