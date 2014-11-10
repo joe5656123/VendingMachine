@@ -25,7 +25,7 @@ public class VendingGUI extends JFrame {
         setLayout(new FlowLayout(FlowLayout.LEFT));
         setResizable(false);
         setTitle("VENDING_MACHINE");
-		setSize(340, 530);
+		setSize(340, 550);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //build image grid
@@ -80,7 +80,7 @@ public class VendingGUI extends JFrame {
         jpSelection.add(jtfSelectionField);
         add(jpSelection, BorderLayout.PAGE_START);
         //adding the interactable buttons in a grid via a loop.  Except for the last two buttons.
-        JPanel jpButtons = new JPanel(new GridLayout(3, 4,3,3));
+        JPanel jpButtons = new JPanel(new GridLayout(4, 3,3,3));
         jpButtons.setBorder(new TitledBorder("Please make a selection"));
         JButton[] buttonGrid = new JButton[10];
 
