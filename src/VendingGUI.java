@@ -13,6 +13,15 @@ public class VendingGUI extends JFrame {
     private JLabel jpImage;
     private Inventory inventory;
 
+    private Item doritos = new Item(1, "Doritos");
+	private Item hershey = new Item(1.25, "Hershey");
+	private Item kitkat = new Item(1.25, "Kit-Kat");
+	private Item lays = new Item(1, "Lays");
+	private Item lifeSavers = new Item(.75, "Life Savers");
+	private Item milkyWay = new Item(1.25, "Milky Way");
+	private Item recees = new Item(1.25, "Recee's");
+	private Item snickers = new Item(1.25, "Snickers");
+	private Item sunChips = new Item(1, "Sun Chips");
 
     public VendingGUI() {
 		// Instansiate Inventory Object
@@ -29,7 +38,7 @@ public class VendingGUI extends JFrame {
 
 		// Labels and Panels where the candy will drop
 		jpReturn = new JPanel(new FlowLayout());
-		jpReturn.setBorder(new TitledBorder("Candy Get!"));
+		jpReturn.setBorder(new TitledBorder("Get Candy"));
 		jpImage = new JLabel(new ImageIcon("Images\\0.jpg"));
 		jpImage.addMouseListener(new java.awt.event.MouseListener() {
 			public void mouseEntered(MouseEvent e) {}
@@ -43,7 +52,7 @@ public class VendingGUI extends JFrame {
 		});
 		jpReturn.add(jpImage);
 
-//setting various visual features and buttons
+		//setting various visual features and buttons
         setLayout(new FlowLayout(FlowLayout.LEFT));
         setResizable(false);
         setTitle("JVM");
@@ -53,8 +62,7 @@ public class VendingGUI extends JFrame {
         //build image grid
         //JPanel jpItemDisplay = new JPanel(new FlowLayout(FlowLayout.LEFT, 3, 3));
         JPanel jpItemDisplay = new JPanel(new GridLayout(3, 4, 3, 3));
-        jpItemDisplay.setBorder(new TitledBorder("Available Items"));
-
+        jpItemDisplay.setBorder(new TitledBorder("Inventory"));
         //add images to grid as JLabels
         for (ImageIcon i : images) {
 			jpItemDisplay.add(new JLabel(i));
@@ -67,7 +75,7 @@ public class VendingGUI extends JFrame {
 
         //build the selection panel, put at the top for visibility
         JPanel jpSelection = new JPanel(new FlowLayout(FlowLayout.LEFT, 3, 3));
-        jpSelection.setBorder(new TitledBorder("Selection Goes Here"));
+        jpSelection.setBorder(new TitledBorder("Item Type"));
 
         jtfSelectionField = new JTextField(20);
         jtfSelectionField.setEditable(false);
@@ -95,7 +103,7 @@ public class VendingGUI extends JFrame {
         jbtEnter.addActionListener(new java.awt.event.ActionListener() {
 			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jpImage.setIcon(images.get(Integer.parseInt(jtfSelectionField.getText()) - 1));
+				jpImage.setIcon(images.get(Integer.parseInt(jtfSelectionField.getText().split("[)]")[0]) - 1));
 			}
         });
 
@@ -121,16 +129,15 @@ public class VendingGUI extends JFrame {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() instanceof JButton) {
                 String text = ((JButton) e.getSource()).getText();
-                jtfSelectionField.setText(text);
+                // stufffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+                //jtfSelectionField.setText(text);
+                jtfSelectionField.setText(text + ") " + doritos.getName() + ' ' + doritos.getPrice());
             }
         }
     };
-//we can remove main, it was only used for testing purposes, if you want and just call the constructor in the main method
 
     public static void main(String[] args) {
-
         JFrame vendingWindow = new VendingGUI();
         vendingWindow.setVisible(true);
-
     }
 }
