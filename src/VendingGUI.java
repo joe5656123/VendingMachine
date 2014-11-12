@@ -9,64 +9,62 @@ public class VendingGUI extends JFrame {
     private JTextField jtfSelectionField;
     private JTextArea jtaCandyGet;
 
-
-
     public VendingGUI() {
-		ImageIcon Doritos = new ImageIcon("Images\\Doritos64.jpg");
-		ImageIcon Hersheys = new ImageIcon("Images\\Hersheys64.jpg");
-		ImageIcon KitKat = new ImageIcon("Images\\KitKat64.jpg");
-		ImageIcon Lays = new ImageIcon("Images\\Lays64.jpg");
-		ImageIcon LifeSavers = new ImageIcon("Images\\LifeSavers64.jpg");
-		ImageIcon MilkyWay = new ImageIcon("Images\\MilkyWay64.jpg");
-		ImageIcon Reeses = new ImageIcon("Images\\Reeses64.jpg");
-		ImageIcon Snickers = new ImageIcon("Images\\Snickers64.jpg");
-		ImageIcon SunChips = new ImageIcon("Images\\SunChips64.jpg");
+        ImageIcon Doritos = new ImageIcon("Images\\Doritos64.jpg");
+        ImageIcon Hersheys = new ImageIcon("Images\\Hersheys64.jpg");
+        ImageIcon KitKat = new ImageIcon("Images\\KitKat64.jpg");
+        ImageIcon Lays = new ImageIcon("Images\\Lays64.jpg");
+        ImageIcon LifeSavers = new ImageIcon("Images\\LifeSavers64.jpg");
+        ImageIcon MilkyWay = new ImageIcon("Images\\MilkyWay64.jpg");
+        ImageIcon Reeses = new ImageIcon("Images\\Reeses64.jpg");
+        ImageIcon Snickers = new ImageIcon("Images\\Snickers64.jpg");
+        ImageIcon SunChips = new ImageIcon("Images\\SunChips64.jpg");
 //setting various visual features and buttons
         setLayout(new FlowLayout(FlowLayout.LEFT));
         setResizable(false);
         setTitle("VENDING_MACHINE");
-		setSize(340, 550);
+        setSize(340, 550);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //build image grid
-					//JPanel jpItemDisplay = new JPanel(new FlowLayout(FlowLayout.LEFT, 3, 3));
-					JPanel jpItemDisplay = new JPanel(new GridLayout(3, 4,3,3));
-					jpItemDisplay.setBorder(new TitledBorder("Available Items"));
-						//add images to grid as JLabels
-						JLabel jlblDoritos = new JLabel(Doritos);
-						jpItemDisplay.add(jlblDoritos);
+        //JPanel jpItemDisplay = new JPanel(new FlowLayout(FlowLayout.LEFT, 3, 3));
+        JPanel jpItemDisplay = new JPanel(new GridLayout(3, 4, 3, 3));
+        jpItemDisplay.setBorder(new TitledBorder("Available Items"));
+        //add images to grid as JLabels
+        JLabel jlblDoritos = new JLabel(Doritos);
+        jpItemDisplay.add(jlblDoritos);
 
-						JLabel jlblHersheys = new JLabel(Hersheys);
-						jpItemDisplay.add(jlblHersheys);
+        JLabel jlblHersheys = new JLabel(Hersheys);
+        jpItemDisplay.add(jlblHersheys);
 
-						JLabel jlblKitKat = new JLabel(KitKat);
-						jpItemDisplay.add(jlblKitKat);
+        JLabel jlblKitKat = new JLabel(KitKat);
+        jpItemDisplay.add(jlblKitKat);
 
-						JLabel jlblLays = new JLabel(Lays);
-						jpItemDisplay.add(jlblLays);
+        JLabel jlblLays = new JLabel(Lays);
+        jpItemDisplay.add(jlblLays);
 
-						JLabel jlblLifeSavers = new JLabel(LifeSavers);
-						jpItemDisplay.add(jlblLifeSavers);
+        JLabel jlblLifeSavers = new JLabel(LifeSavers);
+        jpItemDisplay.add(jlblLifeSavers);
 
-						JLabel jlblMilkyWay = new JLabel(MilkyWay);
-						jpItemDisplay.add(jlblMilkyWay);
+        JLabel jlblMilkyWay = new JLabel(MilkyWay);
+        jpItemDisplay.add(jlblMilkyWay);
 
-						JLabel jlblReeses = new JLabel(Reeses);
-						jpItemDisplay.add(jlblReeses);
+        JLabel jlblReeses = new JLabel(Reeses);
+        jpItemDisplay.add(jlblReeses);
 
-						JLabel jlblSnickers = new JLabel(Snickers);
-						jpItemDisplay.add(jlblSnickers);
+        JLabel jlblSnickers = new JLabel(Snickers);
+        jpItemDisplay.add(jlblSnickers);
 
-						JLabel jlblSunChips = new JLabel(SunChips);
-						jpItemDisplay.add(jlblSunChips);
+        JLabel jlblSunChips = new JLabel(SunChips);
+        jpItemDisplay.add(jlblSunChips);
 
-		add(jpItemDisplay, BorderLayout.WEST);
-		//Adding that drop spot at the bottom of a machine
-		        JPanel jpCandySpot = new JPanel(new FlowLayout(FlowLayout.LEFT, 3, 3));
-		        jtaCandyGet = new JTextArea(5, 20);
-		        jtaCandyGet.setEditable(false);
+        add(jpItemDisplay, BorderLayout.WEST);
+        //Adding that drop spot at the bottom of a machine
+        JPanel jpCandySpot = new JPanel(new FlowLayout(FlowLayout.LEFT, 3, 3));
+        jtaCandyGet = new JTextArea(5, 20);
+        jtaCandyGet.setEditable(false);
 
-		        jpCandySpot.add(jtaCandyGet);
+        jpCandySpot.add(jtaCandyGet);
 
         add(jpCandySpot, BorderLayout.PAGE_START);
 
@@ -80,7 +78,7 @@ public class VendingGUI extends JFrame {
         jpSelection.add(jtfSelectionField);
         add(jpSelection, BorderLayout.PAGE_START);
         //adding the interactable buttons in a grid via a loop.  Except for the last two buttons.
-        JPanel jpButtons = new JPanel(new GridLayout(4, 3,3,3));
+        JPanel jpButtons = new JPanel(new GridLayout(4, 3, 3, 3));
         jpButtons.setBorder(new TitledBorder("Please make a selection"));
         JButton[] buttonGrid = new JButton[10];
 
@@ -114,10 +112,6 @@ public class VendingGUI extends JFrame {
 
         add(jpButtons, BorderLayout.PAGE_START);
 
-
-
-
-
     }//The following ActionListeners were NOT generated by netbeans
     ActionListener listener = new ActionListener() {
         @Override
@@ -138,6 +132,7 @@ public class VendingGUI extends JFrame {
         jtaCandyGet.setText(jtfSelectionField.getText() + "CANDY YAY!"); //temp result
     }
 //we can remove main, it was only used for testing purposes, if you want and just call the constructor in the main method
+
     public static void main(String[] args) {
 
         JFrame vendingWindow = new VendingGUI();

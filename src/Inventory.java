@@ -22,4 +22,7 @@ public class Inventory implements Serializable {
     
     public int getCash() { return this._cash; }
     public void setCash(int c) { this._cash = c; }
+    
+    // private void writeObject(java.io.ObjectOutputStream out) throws IOException;
+    // private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException;
 }
