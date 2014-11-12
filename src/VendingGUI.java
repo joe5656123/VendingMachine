@@ -138,7 +138,7 @@ public class VendingGUI extends JFrame {
                 String text = ((JButton) e.getSource()).getText();
                 Item item = inventory.getInventory().get(Integer.parseInt(text) - 1);
 
-                if (item.getInventory() == 0)
+                if (item.getInventory() <= 0)
 					jtfSelectionField.setText("Out of " + item.getName());
 				else {
 					//Item item = inventory.getInventory().get(Integer.parseInt(text) - 1);
