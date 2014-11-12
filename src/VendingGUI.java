@@ -136,9 +136,21 @@ public class VendingGUI extends JFrame {
             if (e.getSource() instanceof JButton) {
 
                 String text = ((JButton) e.getSource()).getText();
+<<<<<<< HEAD
                 Item item = inventory.getInventory().get(Integer.parseInt(text));
                 jtfSelectionField.setText(String.format("%s) %s $%.2f, %d in stock", text, item.getName(), item.getPrice(), item.getInventory()));
                 //item.setInventory(-1);
+=======
+                Item item = inventory.getInventory().get(Integer.parseInt(text) - 1);
+
+                if (item.getInventory() == 0)
+					jtfSelectionField.setText("Out of " + item.getName());
+				else {
+					//Item item = inventory.getInventory().get(Integer.parseInt(text) - 1);
+					jtfSelectionField.setText(String.format("%s) %s $%.2f, %d in stock", text, item.getName(), item.getPrice(), item.getInventory()));
+					item.setInventory(-1);
+				}
+>>>>>>> origin/master
             }
         }
     };
