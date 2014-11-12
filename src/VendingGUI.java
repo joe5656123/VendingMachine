@@ -13,16 +13,6 @@ public class VendingGUI extends JFrame {
     private JLabel jpImage;
     private Inventory inventory;
 
-    private Item doritos = new Item(1, "Doritos");
-	private Item hershey = new Item(1.25, "Hershey");
-	private Item kitkat = new Item(1.25, "Kit-Kat");
-	private Item lays = new Item(1, "Lays");
-	private Item lifeSavers = new Item(.75, "Life Savers");
-	private Item milkyWay = new Item(1.25, "Milky Way");
-	private Item recees = new Item(1.25, "Recee's");
-	private Item snickers = new Item(1.25, "Snickers");
-	private Item sunChips = new Item(1, "Sun Chips");
-
     public VendingGUI() {
 		// Instansiate Inventory Object
 		inventory = new Inventory();
@@ -128,10 +118,29 @@ public class VendingGUI extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() instanceof JButton) {
+				Item item = null;
                 String text = ((JButton) e.getSource()).getText();
-                // stufffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-                //jtfSelectionField.setText(text);
-                jtfSelectionField.setText(text + ") " + doritos.getName() + ' ' + doritos.getPrice());
+                switch (Integer.parseInt(text)) {
+					case 1: item = new Item(1, "Doritos");
+					break;
+					case 2: item = new Item(1.25, "Hershey");
+					break;
+					case 3: item = new Item(1.25, "Kit-Kat");
+					break;
+					case 4: item = new Item(1, "Lays");
+					break;
+					case 5: item = new Item(.75, "Life Savers");
+					break;
+					case 6: item = new Item(1.25, "Milky Way");
+					break;
+					case 7: item = new Item(1.25, "Recee's");
+					break;
+					case 8: item = new Item(1.25, "Snickers");
+					break;
+					default: item = new Item(1, "Sun Chips");
+				}
+
+                jtfSelectionField.setText(text + ") " + item.getName() + ' ' + item.getPrice());
             }
         }
     };
