@@ -105,7 +105,11 @@ public class VendingGUI extends JFrame {
         jbtEnter.addActionListener(new java.awt.event.ActionListener() {
 			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jpImage.setIcon(images.get(Integer.parseInt(jtfSelectionField.getText().split("[)]")[0]) - 1));
+				try {
+					int itemNum = Integer.parseInt(jtfSelectionField.getText().split("[)]")[0]) - 1;
+					jpImage.setIcon(images.get(itemNum));
+					inventory.getInventory().get(itemNum).setInventory(-1);
+				} catch(Exception ex) {}
 			}
         });
 
@@ -134,7 +138,7 @@ public class VendingGUI extends JFrame {
                 String text = ((JButton) e.getSource()).getText();
                 Item item = inventory.getInventory().get(Integer.parseInt(text));
                 jtfSelectionField.setText(String.format("%s) %s $%.2f, %d in stock", text, item.getName(), item.getPrice(), item.getInventory()));
-                item.setInventory(-1);
+                //item.setInventory(-1);
             }
         }
     };
