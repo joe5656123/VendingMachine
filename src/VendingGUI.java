@@ -134,6 +134,7 @@ public class VendingGUI extends JFrame {
                 String text = ((JButton) e.getSource()).getText();
                 Item item = inventory.getInventory().get(Integer.parseInt(text));
                 jtfSelectionField.setText(String.format("%s) %s $%.2f, %d in stock", text, item.getName(), item.getPrice(), item.getInventory()));
+                item.setInventory(-1);
             }
         }
     };
