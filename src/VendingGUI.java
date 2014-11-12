@@ -143,7 +143,7 @@ public class VendingGUI extends JFrame {
 				else {
 					//Item item = inventory.getInventory().get(Integer.parseInt(text) - 1);
 					jtfSelectionField.setText(String.format("%s) %s $%.2f, %d in stock", text, item.getName(), item.getPrice(), item.getInventory()));
-					item.setInventory(-1);
+					//item.setInventory(-1);
 				}
             }
         }
