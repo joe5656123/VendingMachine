@@ -1,6 +1,5 @@
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 import java.util.*;
@@ -23,6 +22,15 @@ public class VendingGUI extends JFrame {
 		jpReturn = new JPanel(new FlowLayout());
 		jpReturn.setBorder(new TitledBorder("Candy Get!"));
 		jpImage = new JLabel(new ImageIcon("Images\\0.jpg"));
+		jpImage.addMouseListener(new java.awt.event.MouseListener() {
+			public void mouseEntered(MouseEvent e) {}
+			public void mouseExited(MouseEvent e) {}
+			public void mouseReleased(MouseEvent e) {}
+			public void mousePressed(MouseEvent e) {}
+			public void mouseClicked(MouseEvent e) {
+				jpImage.setIcon(new ImageIcon("Images\\0.jpg"));
+			}
+		});
 		jpReturn.add(jpImage);
 
 //setting various visual features and buttons
