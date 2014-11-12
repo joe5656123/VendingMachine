@@ -19,6 +19,18 @@ public class VendingGUI extends JFrame {
 
 		// Try to load the Inventory from the file, or just create new data
 		// TODO: Implement loading
+		// if file exists do something
+		// else add items
+		ArrayList<Item> items = inventory.getInventory();
+		items.add(new Item(1.00, "Doritos"));
+		items.add(new Item(1.25, "Hershey"));
+		items.add(new Item(1.25, "Kit-Kat"));
+		items.add(new Item(1.00, "Lays"));
+		items.add(new Item(.75, "Life Savers"));
+		items.add(new Item(1.25, "Milky Way"));
+		items.add(new Item(1.25, "Recee's"));
+		items.add(new Item(1.25, "Snickers"));
+		items.add(new Item(1.00, "Sun Chips"));
 
 		// Load ArrayList of ImageIcons, these are stored to reference later
 		images = new ArrayList<ImageIcon>();
@@ -118,28 +130,9 @@ public class VendingGUI extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() instanceof JButton) {
-				Item item = null;
-                String text = ((JButton) e.getSource()).getText();
-                switch (Integer.parseInt(text)) {
-					case 1: item = new Item(1.00, "Doritos");
-					break;
-					case 2: item = new Item(1.25, "Hershey");
-					break;
-					case 3: item = new Item(1.25, "Kit-Kat");
-					break;
-					case 4: item = new Item(1.00, "Lays");
-					break;
-					case 5: item = new Item(.75, "Life Savers");
-					break;
-					case 6: item = new Item(1.25, "Milky Way");
-					break;
-					case 7: item = new Item(1.25, "Recee's");
-					break;
-					case 8: item = new Item(1.25, "Snickers");
-					break;
-					default: item = new Item(1.00, "Sun Chips");
-				}
 
+                String text = ((JButton) e.getSource()).getText();
+                Item item = inventory.getInventory().get(Integer.parseInt(text));
                 jtfSelectionField.setText(String.format("%s) %s $%.2f, %d in stock", text, item.getName(), item.getPrice(), item.getInventory()));
             }
         }

@@ -5,7 +5,9 @@ public class Inventory implements Serializable {
     private java.util.ArrayList<Item> _inventory;
     private float _cash;
 
-    public Inventory() { }
+    public Inventory() {
+		this._inventory = new ArrayList<Item>();
+	}
 
     public java.util.ArrayList<Item> getInventory() { return this._inventory; }
     public void setInventory(java.util.List<Item> i) { this._inventory = (ArrayList<Item>) i; }
