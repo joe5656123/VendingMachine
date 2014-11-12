@@ -45,3 +45,4 @@ Temporary Items
 /build/
 nbproject/private/private.xml
 *.class
+nbproject/project.properties
