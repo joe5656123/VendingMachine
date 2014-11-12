@@ -121,13 +121,13 @@ public class VendingGUI extends JFrame {
 				Item item = null;
                 String text = ((JButton) e.getSource()).getText();
                 switch (Integer.parseInt(text)) {
-					case 1: item = new Item(1, "Doritos");
+					case 1: item = new Item(1.00, "Doritos");
 					break;
 					case 2: item = new Item(1.25, "Hershey");
 					break;
 					case 3: item = new Item(1.25, "Kit-Kat");
 					break;
-					case 4: item = new Item(1, "Lays");
+					case 4: item = new Item(1.00, "Lays");
 					break;
 					case 5: item = new Item(.75, "Life Savers");
 					break;
@@ -137,10 +137,10 @@ public class VendingGUI extends JFrame {
 					break;
 					case 8: item = new Item(1.25, "Snickers");
 					break;
-					default: item = new Item(1, "Sun Chips");
+					default: item = new Item(1.00, "Sun Chips");
 				}
 
-                jtfSelectionField.setText(text + ") " + item.getName() + ' ' + item.getPrice());
+                jtfSelectionField.setText(String.format("%s) %s $%.2f, %d in stock", text, item.getName(), item.getPrice(), item.getInventory()));
             }
         }
     };
