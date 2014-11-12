@@ -109,6 +109,7 @@ public class VendingGUI extends JFrame {
 					int itemNum = Integer.parseInt(jtfSelectionField.getText().split("[)]")[0]) - 1;
 					jpImage.setIcon(images.get(itemNum));
 					inventory.getInventory().get(itemNum).setInventory(-1);
+					jtfSelectionField.setText("");
 				} catch(Exception ex) {}
 			}
         });
@@ -126,6 +127,7 @@ public class VendingGUI extends JFrame {
 		this.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				// OnExit Listener
+				// TODO: Save data
 
 			}
         });
@@ -141,9 +143,7 @@ public class VendingGUI extends JFrame {
                 if (item.getInventory() <= 0)
 					jtfSelectionField.setText("Out of " + item.getName());
 				else {
-					//Item item = inventory.getInventory().get(Integer.parseInt(text) - 1);
 					jtfSelectionField.setText(String.format("%s) %s $%.2f, %d in stock", text, item.getName(), item.getPrice(), item.getInventory()));
-					//item.setInventory(-1);
 				}
             }
         }
