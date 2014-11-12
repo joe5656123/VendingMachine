@@ -122,7 +122,7 @@ public class VendingGUI extends JFrame {
         //TODO:Code that links the selection program to the UI Frank pls
         //jtaCandyGet.setText(jtfSelectionField.getText() + "CANDY YAY!"); //temp result
         //jtaCandyGet.setIcon(new ImageIcon(jtfSelectionField.getText() + ".jpg"));
-		jpImage.setIcon(images.get(Integer.parseInt(jtfSelectionField.getText())));
+		jpImage.setIcon(images.get(Integer.parseInt(jtfSelectionField.getText()) - 1));
     }
 //we can remove main, it was only used for testing purposes, if you want and just call the constructor in the main method
 
