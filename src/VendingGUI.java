@@ -12,8 +12,32 @@ public class VendingGUI extends JFrame {
     private JPanel jpReturn;
     private JLabel jpImage;
     private Inventory inventory;
+    private ActionListener listener = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() instanceof JButton) {
 
-    public VendingGUI() {
+				String text = ((JButton) e.getSource()).getText();
+				Item item = inventory.getInventory().get(Integer.parseInt(text) - 1);
+
+				if (item.getInventory() <= 0)
+					jtfSelectionField.setText("Out of " + item.getName());
+				else {
+					jtfSelectionField.setText(String.format("%s) %s $%.2f, %d in stock", text, item.getName(), item.getPrice(), item.getInventory()));
+				}
+			}
+		}
+    };
+
+	public VendingGUI() {
+		// Initialize Variables
+		varInit();
+
+		// Build The GUI
+		buildGUI();
+    }
+
+	private void varInit() {
 		// Instansiate Inventory Object
 		this.inventory = new Inventory();
 
@@ -21,6 +45,7 @@ public class VendingGUI extends JFrame {
 		// TODO: Implement loading
 		// if file exists do something
 		// else add items
+
 		ArrayList<Item> items = inventory.getInventory();
 		items.add(new Item(1.00, "Doritos"));
 		items.add(new Item(1.25, "Hershey"));
@@ -37,7 +62,9 @@ public class VendingGUI extends JFrame {
 		for (int i = 1; i < 10; i++) {
 			images.add(new ImageIcon("Images\\" + i + ".jpg"));
 		}
+	}
 
+    private void buildGUI() {
 		// Labels and Panels where the candy will drop
 		jpReturn = new JPanel(new FlowLayout());
 		jpReturn.setBorder(new TitledBorder("Get Candy"));
@@ -55,54 +82,54 @@ public class VendingGUI extends JFrame {
 		jpReturn.add(jpImage);
 
 		// Setting various visual features and buttons
-        setLayout(new FlowLayout(FlowLayout.LEFT));
-        setResizable(false);
-        setTitle("JVM");
-        setSize(250, 575);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new FlowLayout(FlowLayout.LEFT));
+		setResizable(false);
+		setTitle("JVM");
+		setSize(250, 575);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Build image grid
-        // JPanel jpItemDisplay = new JPanel(new FlowLayout(FlowLayout.LEFT, 3, 3));
-        JPanel jpItemDisplay = new JPanel(new GridLayout(3, 4, 3, 3));
-        jpItemDisplay.setBorder(new TitledBorder("Inventory"));
-        // Add images to grid as JLabels
-        for (ImageIcon i : images) {
+		// Build image grid
+		JPanel jpItemDisplay = new JPanel(new GridLayout(3, 4, 3, 3));
+		jpItemDisplay.setBorder(new TitledBorder("Inventory"));
+
+		// Add images to grid as JLabels
+		for (ImageIcon i : images) {
 			jpItemDisplay.add(new JLabel(i));
 		}
-        add(jpItemDisplay, BorderLayout.WEST);
+		add(jpItemDisplay, BorderLayout.WEST);
 
-        // Adding that drop spot at the bottom of a machine
-        JPanel jpCandySpot = new JPanel(new FlowLayout(FlowLayout.LEFT, 3, 3));
-        add(jpCandySpot, BorderLayout.PAGE_START);
+		// Adding that drop spot at the bottom of a machine
+		JPanel jpCandySpot = new JPanel(new FlowLayout(FlowLayout.LEFT, 3, 3));
+		add(jpCandySpot, BorderLayout.PAGE_START);
 
-        // Build the selection panel, put at the top for visibility
-        JPanel jpSelection = new JPanel(new FlowLayout(FlowLayout.LEFT, 3, 3));
-        jpSelection.setBorder(new TitledBorder("Item Type"));
+		// Build the selection panel, put at the top for visibility
+		JPanel jpSelection = new JPanel(new FlowLayout(FlowLayout.LEFT, 3, 3));
+		jpSelection.setBorder(new TitledBorder("Item Type"));
 
-        jtfSelectionField = new JTextField(20);
-        jtfSelectionField.setEditable(false);
+		jtfSelectionField = new JTextField(20);
+		jtfSelectionField.setEditable(false);
 
-        jpSelection.add(jtfSelectionField);
-        add(jpSelection, BorderLayout.PAGE_START);
+		jpSelection.add(jtfSelectionField);
+		add(jpSelection, BorderLayout.PAGE_START);
 
-        // Adding the interactable buttons in a grid via a loop.  Except for the last two buttons.
-        JPanel jpButtons = new JPanel(new GridLayout(4, 3, 3, 3));
-        jpButtons.setBorder(new TitledBorder("Please make a selection"));
-        JButton[] buttonGrid = new JButton[10];
+		// Adding the interactable buttons in a grid via a loop.  Except for the last two buttons.
+		JPanel jpButtons = new JPanel(new GridLayout(4, 3, 3, 3));
+		jpButtons.setBorder(new TitledBorder("Please make a selection"));
+		JButton[] buttonGrid = new JButton[10];
 
-        for (int i = 1; i < buttonGrid.length; i++) {
-            buttonGrid[i] = new JButton(String.valueOf(i));
-            jpButtons.add(buttonGrid[i]);
-            buttonGrid[i].addActionListener(listener);
-        }
+		for (int i = 1; i < buttonGrid.length; i++) {
+			buttonGrid[i] = new JButton(String.valueOf(i));
+			jpButtons.add(buttonGrid[i]);
+			buttonGrid[i].addActionListener(listener);
+		}
 
-        JButton jbtEnter = new JButton();
-        JButton jbtQuit = new JButton();
-        jbtQuit.setText("Clear");
-        jbtEnter.setText("Enter");
+		JButton jbtEnter = new JButton();
+		JButton jbtQuit = new JButton();
+		jbtQuit.setText("Clear");
+		jbtEnter.setText("Enter");
 
-        jpButtons.add(jbtEnter);
-        jbtEnter.addActionListener(new java.awt.event.ActionListener() {
+		jpButtons.add(jbtEnter);
+		jbtEnter.addActionListener(new java.awt.event.ActionListener() {
 			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				try {
@@ -112,16 +139,16 @@ public class VendingGUI extends JFrame {
 					jtfSelectionField.setText("");
 				} catch(Exception ex) {}
 			}
-        });
+		});
 
-        jpButtons.add(jbtQuit);
-        jbtQuit.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfSelectionField.setText("");
-            }
-        });
-        add(jpButtons, BorderLayout.PAGE_START);
+		jpButtons.add(jbtQuit);
+		jbtQuit.addActionListener(new java.awt.event.ActionListener() {
+			@Override
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jtfSelectionField.setText("");
+			}
+		});
+		add(jpButtons, BorderLayout.PAGE_START);
 		jpCandySpot.add(jpReturn);
 
 		this.addWindowListener(new WindowAdapter() {
@@ -131,23 +158,7 @@ public class VendingGUI extends JFrame {
 
 			}
         });
-    }
-    ActionListener listener = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            if (e.getSource() instanceof JButton) {
-
-                String text = ((JButton) e.getSource()).getText();
-                Item item = inventory.getInventory().get(Integer.parseInt(text) - 1);
-
-                if (item.getInventory() <= 0)
-					jtfSelectionField.setText("Out of " + item.getName());
-				else {
-					jtfSelectionField.setText(String.format("%s) %s $%.2f, %d in stock", text, item.getName(), item.getPrice(), item.getInventory()));
-				}
-            }
-        }
-    };
+	}
 
     public static void main(String[] args) {
         JFrame vendingWindow = new VendingGUI();
